@@ -9,7 +9,16 @@ namespace BLL.DTO
     public class ProductDTO
     {
  
-        public Guid ProductId { get; set; }
+        public ProductDTO (int i, string a, string b, uint d, int c)
+        {
+            ProductId = i;
+            Name = a;
+            Description = b;
+            Cost = d;
+            Count = c;
+
+        }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public uint Cost { get; set; }
