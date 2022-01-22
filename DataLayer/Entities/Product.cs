@@ -9,19 +9,18 @@ namespace DataLayer
 {
     public class Product
     {
+        public Product(int i, string a, string b, uint d, int c)
+        {
+            ProductId = i;
+            Name = a;
+            Description = b;
+            Cost = d;
+            Count = c;
+
+        }
         [Required]
         [Key]
-        public Guid ProductId
-        {
-            get
-            {
-                return ProductId;
-            }
-            set
-            {
-                ProductId = Guid.NewGuid();
-            }
-        }
+        public int ProductId { get; set; }
         [Required(ErrorMessage = "Укажите имя товара")]
         [StringLength(15)]
         public string Name { get; set; }

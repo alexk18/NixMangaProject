@@ -6,31 +6,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using DataLayer;
 
 namespace BLL.Services
 {
     public class ProductService : IProductService
     {
-        List<ProductDTO> product = new List<ProductDTO>()
-        {
-            new ProductDTO(1, "Test", "DESC", 10, 5),
-            new ProductDTO(2, "Test", "DESC", 20, 5),
-            new ProductDTO(3, "Test", "DESC", 15, 5)
-        };
+        ProductRepository rep = new ProductRepository();
+
         public void DeleteProduct(int id)
         {
-            foreach (var item in product)
+            foreach (var item in rep.productlist )
             {
                 if (item.ProductId == id)
                 {
-                    product.Remove(item);
+                    rep.productlist.Remove(item);
                 }
             }
         }
 
         public void DescriptionChange(string newdescription, int id)
         {
-            foreach (var item in product)
+            foreach (var item in rep.productlist)
             {
                 if (item.ProductId == id)
                 {
@@ -39,23 +36,23 @@ namespace BLL.Services
             }
         }
 
-        public List<ProductDTO> FindById(int id)
+        public List<Product> FindById(int id)
         {
-            var temp = new List<ProductDTO>();
-            temp = (from products in product where products.ProductId == id select products).ToList();
+            var temp = new List<Product>();
+            temp = (from products in rep.productlist where products.ProductId == id select products).ToList();
             return temp;
         }
 
-        public List<ProductDTO> FindByName(string name)
+        public List<Product> FindByName(string name)
         {
-            var temp = new List<ProductDTO>();
-            temp = (from products in product where products.Name == name select products).ToList();
+            var temp = new List<Product>();
+            temp = (from products in rep.productlist where products.Name == name select products).ToList();
             return temp;
         }
 
         public void Sale(double sale, int i)
         {
-            foreach (var item in product)
+            foreach (var item in rep.productlist)
             {
                 if (item.ProductId == i)
                 {

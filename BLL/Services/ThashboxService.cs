@@ -10,31 +10,26 @@ namespace BLL.Services
 {
     public class ThashboxService : ITrashboxService
     {
-        List<ProductDTO> Tovari = new List<ProductDTO>()
-        {
-            new ProductDTO(1, "Test", "DESC", 10, 5),
-            new ProductDTO(2, "Test", "DESC", 20, 5),
-            new ProductDTO(3, "Test", "DESC", 15, 5)
-        };
-        List<int> TrashboxDTOs = new List<int>();
+        List<int> trashboxDTOs = new List<int>();
+        ProductRepository rep = new ProductRepository();
         public void AddToTrashbox(int ProductId)
         {
-            for (int i = 0; i < Tovari.Count; i++)
+            for (int i = 0; i < rep.productlist.Count; i++)
             {
-                Tovari[i].ProductId = ProductId;
+                rep.productlist[i].ProductId = ProductId;
                 {
-                    TrashboxDTOs.Add(Tovari[i].ProductId);
+                    trashboxDTOs.Add(rep.productlist[i].ProductId);
                 }
             }
         }
 
         public void DeleteToTrashbox(int ProductId)
         {
-            for (int i = 0; i < Tovari.Count; i++)
+            for (int i = 0; i < rep.productlist[i].Count; i++)
             {
-                Tovari[i].ProductId = ProductId;
+                rep.productlist[i].ProductId = ProductId;
                 {
-                    TrashboxDTOs.Remove(Tovari[i].ProductId);
+                    trashboxDTOs.Remove(rep.productlist[i].ProductId);
                 }
             }
 
@@ -43,11 +38,11 @@ namespace BLL.Services
         public int GetSum()
         {
             int temp = 0;
-            for(int i = 0; i< TrashboxDTOs.Count; i++)
+            for(int i = 0; i< trashboxDTOs.Count; i++)
             {
-                foreach(var p in Tovari)
+                foreach(var p in rep.productlist)
                 {
-                    if(TrashboxDTOs[i] == p.ProductId)
+                    if(trashboxDTOs[i] == p.ProductId)
                     {
                         temp += Convert.ToInt32(p.Cost);
                     }

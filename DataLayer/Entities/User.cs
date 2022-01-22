@@ -9,19 +9,17 @@ namespace DataLayer
 {
     public class User
     {
+        public User(int a, string b, string c, string d, string f)
+        {
+            UserId = a;
+            Login = b;
+            Password = c;
+            Adress = d;
+            Email = f;
+        }
         [Required]
         [Key]
-        public Guid UserId
-        {
-            get
-            {
-                return UserId;
-            }
-            set
-            {
-                UserId = Guid.NewGuid();
-            }
-        }
+        public int UserId { get; set; }
         [Required(ErrorMessage = "Логин пользователя не указан")]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "Указан слишком большой логин")]
         public string Login { get; set; }
