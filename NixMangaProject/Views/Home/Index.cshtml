@@ -1,97 +1,39 @@
 ﻿
-@*@{
+@{
     ViewData["Title"] = "Home Page";
-}*@
+}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@700&family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">  
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
     <title>Главная</title>
 </head>
 <body>
-<header class="header">
- <div class="header__container">
-     <div class="header__inner">
-         <div class="header__logo">BuyManga</div>
-         <nav class = "header__nav">
-            <div class="header__hamburger-menu">
-                <input id="header__menu-toggle" type="checkbox" />
-                <label class="header__menu-btn" for="header__menu-toggle">
-                  <span></span>
-                </label>
-            
-                <ul class="header__menu-box">
-                  <li><a class="header__menu-item" href="BuyManga.html">Главная</a></li>
-                        <li><a class="header__menu-item" href="">Каталог</a></li>
-                        <li><a class="header__menu-item" href="Aboutus.html">Корзина</a></li>
-                        <li><a class="header__menu-item" href="#">О нас</a></li>
-                        <li><a class="header__menu-item" href="#">Войти</a></li>
-                </ul>
-              </div>
-             <a class="header__nav-link" href="BuyManga.html">Главная</a>
-             <a class="header__nav-link" href="Catalog.html">Каталог</a>
-             <a class="header__nav-link" href="Aboutus.html">Корзина</a>
-             <a class="header__nav-link" href="Otshelnik.html">О нас</a>
-             <a class="header__nav-link" href="#">Войти</a>
-         </nav>
-     </div>
- </div>
-</header>
-
-<div class="main">
-    <div class="main__container">
-        <div class="main__inner">
-            <div class="main__welcome">
-                <h1>Добро пожаловать в мир манги, мы ждали тебя!</h1>
-                <p class = "test"> В каталоге нашего магазина вы найдете культовые произведения в жанре манга для взрослых и детей, рассказывающие интересные и захватывающие истории. В хороших руках манга может стать отличным способом познания окружающего мира, так как идеально передает мироощущение за счет хитрых графических приемов.
-                </p>
-                <input type="button" value=" Заказать мангу" class = "main__button" onClick='location.href="C:\Users\kosin\Source\Repos\alexk18\NixMangaProject\NixMangaProject\Views\Home\Catalog.html"' >
+    <div class="main">
+        <div class="main__container">
+            <div class="main__inner">
+                <div class="main__welcome">
+                    <h1>Добро пожаловать в мир манги, мы ждали тебя!</h1>
+                    <p class=""> В каталоге нашего магазина вы найдете культовые произведения в жанре манга для взрослых и детей, рассказывающие интересные и захватывающие истории. В хороших руках манга может стать отличным способом познания окружающего мира, так как идеально передает мироощущение за счет хитрых графических приемов.
+                    </p>
+                    <input type="button" value=" Заказать мангу" class = "main__button" >
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="advantages">
-  <div class="advantages__container">
-      <div class="advantages__inner"> 
-        <div class="advantages__grid-header"> Почему именно мы?</div>
-        <div class="advantages__grid-pictures1"> <img src="image/adbantages_1.png" alt=""></div>
-        <div class="advantages__grid-text1"> <p>Отличные менеджеры, которые готовы всегда помочь с выбором товара</p></div>
-        <div class="advantages__grid-pictures2"><img src="image/060-coin-dollar.png" alt=""></div>
-        <div class="advantages__grid-text2"> <p>Самые низкие цены среди всех магазинов</p></div>
-        <div class="advantages__grid-pictures3"> <img src="image/084-calendar.png" alt=""></div>
-        <div class="advantages__grid-text3"> <p>Быстрая доставка. Заказы всегда приходят в указаный срок</p></div>
-      </div>
-  </div>  
-</div>
-
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer__inner">
-            <div class="footer__logosocial"> <div class="footer__insta"><a href="https://www.instagram.com/lonesome_jaba/"><img src="image/403-instagram.png" alt=""></a></div><div class="footer__telega"><a href=""><img src="image/406-telegram.png" alt=""></a></div><div class="footer__youtube"><a href="https://www.youtube.com/"><img src="image/414-youtube.png" alt=""></a></div></div>
-            <div class="footer__connect">Связаться с нами</div>
-            <div class="footer__number"> +380985742522</div>
-            <div class="footer__reserved"> Все права защищены</div>
-        </div>
+    <div class="advantages">
+        <div class="advantages__container">
+            <div class="advantages__inner"> 
+              <div class="advantages__grid-header"> Почему именно мы?</div>
+              <div class="advantages__grid-pictures1"> <img src="/Image/adbantages_1.png" alt=""></div>
+              <div class="advantages__grid-text1"> <p class="advText">Отличные менеджеры, которые готовы всегда помочь с выбором товара</p></div>
+              <div class="advantages__grid-pictures2"><img src="/Image/060-coin-dollar.png" alt=""></div>
+              <div class="advantages__grid-text2"> <p class="advText">Самые низкие цены среди всех магазинов</p></div>
+              <div class="advantages__grid-pictures3"> <img src="/Image/084-calendar.png" alt=""></div>
+              <div class="advantages__grid-text3"> <p class="advText">Быстрая доставка. Заказы всегда приходят в указаный срок</p></div>
+            </div>
+        </div>  
     </div>
-</footer>
-
 </body>
 </html>

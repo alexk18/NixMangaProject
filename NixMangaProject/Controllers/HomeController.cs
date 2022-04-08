@@ -13,7 +13,14 @@ namespace NixMangaProject.Controllers
             _logger = logger;
         }
 
+        
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        //[Route("About")]
+        public IActionResult About()
         {
             return View();
         }
