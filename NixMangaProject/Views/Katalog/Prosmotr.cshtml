@@ -1,113 +1,108 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using NixMangaProject.EF.Models;
+@using NixMangaProject.Models;
+@model ProductImageViewModel;
+@{
+    ViewData["Title"] = "Katalog";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Главная</title>
+    <title>Каталог</title>
 </head>
 <body>
     <div class="Main__container">
-        <div class="row">
-            <div class="col-sm-2 test">
-                <div class="catalog__filtr-type">
-                    <div class="catalog__type1 labelPublisher">По жанру</div>
-                    <div class="catalog__testing type2"><input type="checkbox" name="ctype2">Сёнен</div>
-                    <div class="catalog__testing type3"><input type="checkbox" name="ctype3">Сэнтай</div>
-                    <div class="catalog__testing type4"><input type="checkbox" name="ctype4">Дзёсэй</div>
-                    <div class="catalog__testing type5"><input type="checkbox" name="ctype5">Кодомо</div>
-                    <div class="catalog__testing type6"><input type="checkbox" name="ctype5">Сэйнэн</div>
+       <form asp-action="Prosmotr" method="get">
+            <div class="container" id="SearchContainer">
+                    <p class="searchText">Введите название товара: </p>
+                    <div class="SearchOgran form-group"><input type="text" class="form-control" name="SearchString" value="@ViewData["CurrentFilter"]" /></div> 
+                    <button type="submit" class="btn btn-info btn-lg">Поиск</button>
+                    <a asp-action="Prosmotr" class="btn btn-link btn-lg">Вернуться к списку</a>
+            </div>
+       </form>
+         <div class = "container">
+              <div class="row" id="searchFiltercontainer">
+               <div class="row">
+                     <div class="col">
+                         <a class="search__nav-link" asp-controller="Katalog" asp-action="Prosmotr" asp-route-sortOrder = "aviable" >В наличии</a>
+                        </div>
+                       <div class="col">
+                        <a class="search__nav-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-sortOrder = "downTohight">От дешевых</a>
+                         </div>
+                      <div class="col">
+                        <a class="search__nav-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-sortOrder = "HightToDown">От дорогих</a>
+                      </div>
+                     <div class="col">
+                        <a class="search__nav-link" asp-controller="Katalog" asp-action="Prosmotr">Убрать фильтры</a>
+                     </div>
                 </div>
-                <div class="catalog__filtr-type">
-                    <div class="catalog__type1 labelPublisher">По издателю</div>
-                    <div class="catalog__testing type2"><input type="checkbox" name="ctype2">Rise manga</div>
-                    <div class="catalog__testing type3"><input type="checkbox" name="ctype3">Manga life</div>
-                    <div class="catalog__testing type4"><input type="checkbox" name="ctype4">Азбука</div>
-                    <div class="catalog__testing type5"><input type="checkbox" name="ctype5">Эксмо</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12"><button type="button" class="btn-success btn-lg Add_button">Фильтровать</button></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12"><button type="button" class="btn btn-primary btn-lg Add_button" id="Add_tovari"  onClick='location.href="AddProduct.html"'>Добавить товар</button></div>
+              </div>
+        </div>
+      
+        @foreach(var item in Model.products){
+            string s="";
+            @foreach(var it in Model.images)
+            {
+                if (item.ProductId == it.ProductId){ s = it.ImgSource; }
+            }
+            <div class="container"  id="heading">
+                    <div class="row">
+                    <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12"> <div class="body-catalog__item1-icon" ><img src="@s" alt="" id="heading1"></div></div>
+                    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+                        <label for="exampleInputEmail1" class="form-label body-catalog__item1-title"><div class="textcenter">@item.ProductName</div></label>
+                      <div class="row"> @*@s*@
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <label for="exampleInputEmail1" class="form-label"><div class="textcenter"><div class="descriptionInform">@item.ProductDescription</div></div></label>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="row"><button type="submit" class="btn btn-success" id="textbuttonProsmort">Купить</button></div>
+                            <div class="row"><button type="submit" class="btn btn-warning" id="textbuttonProsmort">Подробнее</button></div>  
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-10 test">
-                <div class="row proverka">
-                    <div class="body-catalog">   
-                        <div class="body-catalog__item-1">
-                        <div class="body-catalog__item1-icon"><img src="Image/aot_image4.jpg" alt=""></div> 
-                        <div class="body-catalog__item1-title">Атака Титанов 33 Том</div> 
-                        <div class="body-catalog__item1-buy"><a href="#" class="body-catalog__item1-button">Добавить в корзину</a></div> 
-                        <div class="body-catalog__item1-rating">
-                            <div class="body-catalog__rating-result">
-                                <span class="active"></span>	
-                                <span class="active"></span>    
-                                <span class="active"></span>  
-                                <span></span>    
-                                <span></span>
-                            </div>
-                    </div> 
-                        <div class="body-catalog__item1-detail"><a href="#" class="body-catalog__detail1-button">Узнать подробнее</a></div> 
-                    </div>
-                        <div class="body-catalog__item-1">
-                        <div class="body-catalog__item1-icon"><img src="Image/aot_image4.jpg" alt=""></div> 
-                        <div class="body-catalog__item1-title">Атака Титанов 33 Том</div> 
-                        <div class="body-catalog__item1-buy"><a href="#" class="body-catalog__item1-button">Добавить в корзину</a></div> 
-                        <div class="body-catalog__item1-rating">
-                            <div class="body-catalog__rating-result">
-                                <span class="active"></span>	
-                                <span class="active"></span>    
-                                <span class="active"></span>  
-                                <span></span>    
-                                <span></span>
-                            </div>
-                    </div> 
-                        <div class="body-catalog__item1-detail"><a href="#" class="body-catalog__detail1-button">Узнать подробнее</a></div> 
-                    </div>
-                        <div class="body-catalog__item-1">
-                        <div class="body-catalog__item1-icon"><img src="Image/aot_image4.jpg" alt=""></div> 
-                        <div class="body-catalog__item1-title">Атака Титанов 33 Том</div> 
-                        <div class="body-catalog__item1-buy"><a href="#" class="body-catalog__item1-button">Добавить в корзину</a></div> 
-                        <div class="body-catalog__item1-rating">
-                            <div class="body-catalog__rating-result">
-                                <span class="active"></span>	
-                                <span class="active"></span>    
-                                <span class="active"></span>  
-                                <span></span>    
-                                <span></span>
-                            </div>
-                    </div> 
-                        <div class="body-catalog__item1-detail"><a href="#" class="body-catalog__detail1-button">Узнать подробнее</a></div> 
-                    </div>
-                        <div class="body-catalog__item-1">
-                        <div class="body-catalog__item1-icon"><img src="Image/aot_image4.jpg" alt=""></div> 
-                        <div class="body-catalog__item1-title">Атака Титанов 33 Том</div> 
-                        <div class="body-catalog__item1-buy"><a href="#" class="body-catalog__item1-button">Добавить в корзину</a></div> 
-                        <div class="body-catalog__item1-rating">
-                            <div class="body-catalog__rating-result">
-                                <span class="active"></span>	
-                                <span class="active"></span>    
-                                <span class="active"></span>  
-                                <span></span>    
-                                <span></span>
-                            </div>
-                    </div> 
-                        <div class="body-catalog__item1-detail"><a href="#" class="body-catalog__detail1-button">Узнать подробнее</a></div> 
-                    </div>
-                    </div>
-                </div>  
-                <div class="row"><div class="Nizstr">
-                    <ul id="pagination">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div></div>
-            </div>
+        }
+        <div class = "container">
+            @if(pager.TotalPages > 0)
+            {
+                <ul class="pagination justify-content-end">
+
+                    @if(pager.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                             <a class="page-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-searchString ="@ViewData["CurrentFilter"]" asp-route-pg= "1">Первая</a>
+                        </li>
+                        <li>
+                             <a class="page-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-searchString ="@ViewData["CurrentFilter"]" asp-route-pg= "@(pager.CurrentPage - 1)">Предыдущая</a>
+                        </li>
+                    }
+
+                    @for(var pge=pager.StartPage; pge <= pager.EndPage; pge++)
+                    {
+                        <li class = "page-item @(pge == pager.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-controller="Katalog" asp-action="Prosmotr" asp-route-sortOrder ="@ViewData["Filter"]" asp-route-searchString ="@ViewData["CurrentFilter"]" asp-route-pg= "@pge">@pge</a>
+                        </li>
+                    }
+
+                    @if( pager.CurrentPage < pager.TotalPages){
+
+                        <li class="page-item">
+                             <a class="page-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-searchString ="@ViewData["CurrentFilter"]" asp-route-pg= "@(pager.CurrentPage + 1)">Следующая</a>
+                        </li>
+                        <li>
+                             <a class="page-link" asp-controller="Katalog" asp-action="Prosmotr"  asp-route-searchString ="@ViewData["CurrentFilter"]" asp-route-pg= "@(pager.TotalPages)">Последняя</a>
+                        </li>
+                    }
+                </ul>
+            }
         </div>
     </div>
 </body>

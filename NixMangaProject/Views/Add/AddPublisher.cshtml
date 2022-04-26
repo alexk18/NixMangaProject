@@ -1,0 +1,59 @@
+﻿@using NixMangaProject.EF.Models;
+@model Publisher;
+@{
+    ViewData["Title"] = "AddPublisher";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Добавить издателя</title>
+</head>
+<body>
+
+<div class="Main__container">
+          <form asp-action="AddPublisher" asp-controller="Add" method="post">
+          <div class="container"> 
+                <div class="Help"><p class="Help_text">Для добавления издателя заполните поля ниже</p></div>    
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="Child_Name"><label for="InputName" class="label__Name">Имя издателя</label></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="InputChild_Name">
+                      <input type="text" asp-for="PublisherName" class="form-control" id="InputName" aria-describedby="NameHelp" placeholder="Введите минимум 3 символа">
+                    </div>  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="Child_Name"><label for="InputDescription" class="label__Description">Описание издателя</label> </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="InputChild_Name">
+                      <textarea class="form-control" asp-for="PublisherDescription" id="FormControlTextarea__Description" rows="3" placeholder="Введите минимум 3 символа"></textarea>
+                    </div> 
+                  </div>
+                </div>
+                 <div class="row">
+                  <div class="col-sm-6">
+                    <div class="Child_Name"><label for="InputName" class="label__Name">Контакты издателя</label></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="InputChild_Name">
+                      <input type="text"  asp-for="ContactInfo" class="form-control" id="InputName" aria-describedby="NameHelp" placeholder="Введите минимум 3 символа">
+                    </div>  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="Child_BTN"><button type="submit" class="btn btn-success btn-lg" value="Добавить">Добавить</button></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="Child_BTN"><button type="button" class="btn btn-warning btn-lg" onclick="Clear();">Очистить</button></div>
+                  </div>
+                </div>
+          </div>   
+          </form>
+</div>
+</body>
+</html>
