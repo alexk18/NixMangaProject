@@ -373,7 +373,8 @@ margin-top: auto;
 
 .footer__inner {
     margin-top: auto;
-    color: black;
+    color: whitesmoke;
+    /*color: black;*/
     background: url("/image/footer_shapka.jpg") center;
     background-size: cover;
     width: 100%;
@@ -545,11 +546,18 @@ margin-top: auto;
 }
 
 .body-catalog__item1-icon {
-    grid-area: item1_icon;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+}
+
+#heading1 {
+    max-height: 100% /*340px*/;
+    max-width: 100%/* 250px*/;
+    object-fit: cover;
+   /* position: absolute;*/
+    /*    top: 0;
+    left: 0;*/
 }
 
 .body-catalog__item1-title {
@@ -606,48 +614,6 @@ margin-top: auto;
     transition: 0.2s;
 }
 
-.body-catalog__item1-button:hover {
-    background: rgb(53, 167, 110);
-}
-
-.body-catalog__item1-button:active {
-    background: rgb(33,147,90);
-    box-shadow: 0 3px rgb(33,147,90) inset;
-}
-
-.body-catalog__item1-rating {
-    text-align: left;
-    margin-left: 50px;
-    grid-area: item1_rating;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-.body-catalog__rating-result {
-    width: 265px;
-    /* margin: 0 auto; */
-}
-
-.body-catalog__rating-result span {
-    padding: 0;
-    font-size: 32px;
-    margin: 0 3px;
-    line-height: 1;
-    color: lightgrey;
-    text-shadow: 1px 1px #bbb;
-}
-
-.body-catalog__rating-result > span:before {
-    content: '★';
-}
-
-.body-catalog__rating-result > span.active {
-    color: gold;
-    text-shadow: 1px 1px #c60;
-}
-
 .body-catalog__item1-detail {
     margin-top: 20px;
     text-align: left;
@@ -664,10 +630,6 @@ margin-top: auto;
     /* //overflow: hidden; */
 }
 
-#heading1 {
-    border: 2px solid black;
-    max-height: 260px;
-}
 
 .descriptionInform {
     font-size: 18px;
