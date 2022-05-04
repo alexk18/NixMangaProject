@@ -546,16 +546,16 @@ margin-top: auto;
 }
 
 .body-catalog__item1-icon {
-    border: 1px solid black;
     overflow: hidden;
     position: relative;
 }
 
 #heading1 {
+    border: 1px solid black;
     max-height: 100% /*340px*/;
-    max-width: 100%/* 250px*/;
+    max-width: 100% /* 250px*/;
     object-fit: cover;
-   /* position: absolute;*/
+    /* position: absolute;*/
     /*    top: 0;
     left: 0;*/
 }
